@@ -1,0 +1,4 @@
+<app-searchbar (HandelSearchTextByParent)="setSearchData($event)"></app-searchbar>
+<app-product-list [searchText]="searchText" #ProductLisomponent></app-product-list>
+<!--  ProductLisomponent is a reference varibale on component -->
+<app-product-detail *ngIf="ProductLisomponent.SelectedProduct" [SelectedProduct]="ProductLisomponent.SelectedProduct"></app-product-detail>

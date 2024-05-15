@@ -1,0 +1,25 @@
+<div class="filter-section">
+    Filter:
+    <div class="filter">
+        <input type="radio" name="flter" id="all" value="all"
+        [(ngModel)]="selectedFilterChangedValue" 
+        (change)="SelectedFilterChanged()"
+        >
+        <label for="all">All({{totalproducts}})</label>
+    </div>
+    <div class="filter">
+        <input type="radio" name="flter" id="instock" value="true" 
+        [(ngModel)]="selectedFilterChangedValue" 
+        (change)="SelectedFilterChanged()" 
+        >
+        <label for="instock">In Stock({{totalinstock}})</label>
+    </div>
+    <div class="filter">
+        <input type="radio" name="flter" id="outodstock" value="false"
+         [(ngModel)]="selectedFilterChangedValue" 
+         (change)="SelectedFilterChanged()" 
+         value="false"
+         >
+        <label for="outodstock">Out of Stock({{totaloutofstock}})</label>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="search-bar">
+    <div class="search-box">
+        <!-- <input type="text" placeholder="Search Here..." [(ngModel)]="searchText" (input)="searching()" > -->
+        <!-- <button [disabled]="!searchText" [ngClass]="{'search-btn':true,'search-btn-disabled': !searchText}">Search</button> -->
+        <input type="text" placeholder="Search Here..." #searchInput  >
+        <!-- <button class="search-btn" (click)="UpdateSearchText(searchInput)">Search</button> -->
+        <button class="search-btn" (click)="UpdateSearchTextByViewChild()">Search</button>
+    </div>
+    <div class="search-result">
+        <span *ngIf="searchText">Search Result For: <span class="result-val">{{searchText}}</span></span>
+    </div>
+</div>

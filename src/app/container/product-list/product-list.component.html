@@ -1,0 +1,13 @@
+<app-filter-product
+   [totalproducts]="totalProducts"
+   [totalinstock]="totalStocks" 
+   [totaloutofstock]="totalOutOfStocks"
+   (HandelFilterChangedByParent)="FilterChanged($event)"
+  >
+</app-filter-product>
+<div class="product-list">
+   <div *ngFor="let item of allproducts" (click)="SetSelectedProduct(item)">
+      <!-- *ngIf="showProducts==='all' || item.pInStock.toString()===showProducts" -->
+      <app-product [product]="item" *ngIf="item.pName.toLowerCase().includes(searchText)" ></app-product>
+   </div>
+</div>

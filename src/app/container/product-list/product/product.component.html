@@ -1,0 +1,30 @@
+<div class="product-item">
+    <span class="wishlist-icon">
+        <i>⨁</i>
+    </span>
+    
+    <span class="discount-tag" *ngIf="product.pDiscount">
+        <span>{{product.pDiscount }}% OFF</span>
+    </span>
+
+    <div class="img-container">
+        <img [src]="product.pImage" alt="">
+    </div>
+    <div class="product-details">
+        <div class="product-name">{{product.pName}}</div>
+        <div class="product-price">
+            <span class="net-price" *ngIf="product.pDiscount">$ {{product.pPrice+" |"}}</span> $
+            {{GetDiscount().toFixed(2)}} 
+        </div>
+        <div class="colors">
+            <div class="colors-balls">
+                <span class="color-ball"  *ngFor="let color of product.pColors" [ngStyle]="{backgroundColor:color}"></span>
+            </div>
+            {{product.pColors.length}} Colours |
+            <span class="item-left" [ngStyle]="{color:product.pInStock ? 'green' : 'red'}">
+                {{product.pInStock ? "In Stock" : 'Out of Stock' }}
+            </span>
+        </div>
+        <button class="add-to-cart">Add To Cart</button>
+    </div>
+</div>

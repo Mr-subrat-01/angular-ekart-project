@@ -1,0 +1,44 @@
+.product-detail{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #ccc;
+    height: 100vh;
+    width: 400px;
+    backdrop-filter: blur(100px);
+}
+
+.product-detail .image-container {
+    height: 400px;
+    width: 100%;
+}
+.product-detail .image-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    padding: 10px;
+}
+.product-details{
+    padding: 15px;
+    background-color: aliceblue;
+}
+.product-details .product-name{
+    font-size: 18px;
+}
+.buy-now{
+    width: 100%;
+    background-color: #333;
+    color: #ccc;
+    padding: 10px;
+    margin-top: 15px;
+    border: 0;
+    border-radius: 5px;
+}
+.close-box{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}

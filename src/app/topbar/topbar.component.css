@@ -1,0 +1,11 @@
+.top-header {
+    background-color: #ffcc00;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.sale-message {
+    margin: 0;
+    font-size: 18px;
+    font-family: "Concert One", sans-serif;
+}
