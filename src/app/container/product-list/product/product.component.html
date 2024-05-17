@@ -1,30 +1,38 @@
 <div class="product-item">
     <span class="wishlist-icon">
-        <i>⨁</i>
+        <i 
+        [ngClass]="{'fa-heart':true,'far':!isHoverd, 'fas':isHoverd}" 
+        [ngStyle]="{color:isHoverd?'red':''}"
+        (mouseover)="toggleHover()"
+        (mouseleave)="toggleHover()"
+        ></i>
     </span>
     
-    <span class="discount-tag" *ngIf="product.pDiscount">
-        <span>{{product.pDiscount }}% OFF</span>
+    <span class="discount-tag" *ngIf="product.discount">
+        <span>{{product.discount }}% OFF</span>
     </span>
 
     <div class="img-container">
-        <img [src]="product.pImage" alt="">
+        <img [src]="product.imageURL" alt="">
     </div>
     <div class="product-details">
-        <div class="product-name">{{product.pName}}</div>
+        <div class="product-name">{{product.name}}</div>
         <div class="product-price">
-            <span class="net-price" *ngIf="product.pDiscount">$ {{product.pPrice+" |"}}</span> $
+            <span class="net-price" *ngIf="product.discount">$ {{product.price+" |"}}</span> $
             {{GetDiscount().toFixed(2)}} 
+        </div>
+        <div class="brand-cat-gen-container">
+            <span class="brand-cat-gen">{{product.brand}} . {{product.category}} . {{product.gender}}</span>
         </div>
         <div class="colors">
             <div class="colors-balls">
-                <span class="color-ball"  *ngFor="let color of product.pColors" [ngStyle]="{backgroundColor:color}"></span>
+                <span class="color-ball"  *ngFor="let color of product.color" [ngStyle]="{backgroundColor:color}"></span>
             </div>
-            {{product.pColors.length}} Colours |
-            <span class="item-left" [ngStyle]="{color:product.pInStock ? 'green' : 'red'}">
-                {{product.pInStock ? "In Stock" : 'Out of Stock' }}
+            {{product.color.length}} Colours&nbsp;|&nbsp;
+            <span class="item-left" [ngStyle]="{color:product.inStock ? 'green' : 'red'}">
+                {{product.inStock ? "In Stock" : 'Out of Stock' }}
             </span>
         </div>
-        <button class="add-to-cart">Add To Cart</button>
+        <!-- <button class="add-to-cart">Add To Cart</button> -->
     </div>
 </div>

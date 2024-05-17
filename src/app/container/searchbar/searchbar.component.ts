@@ -19,7 +19,7 @@ export class SearchbarComponent {
   //   this.HandelSearchTextByParent.emit(this.searchText);
   // }
 
-  @ViewChild('searchInput') searchInput: ElementRef;
+  @ViewChild('searchInput') searchInput: ElementRef<HTMLButtonElement>;
 
   UpdateSearchTextByViewChild() {
       this.searchText = this.searchInput.nativeElement.value;

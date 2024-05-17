@@ -1,24 +1,35 @@
-<div class="product-detail">
-    <span class="close-box" (click)="UpdateSelectedProduct()">×</span>
-    <div class="image-container">
-        <img src="/assets/products/p1.jpg" alt="">
-    </div>
-    <div class="product-details">
-        <div class="product-name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, commodi.</div>
-        <div class="product-price">
-            <span class="net-price">$ 999.99</span> $ 899.23
+<div class="overlay">
+    <div class="product-detail">
+        <span class="close-box" (click)="UpdateSelectedProduct()">×</span>
+        <div class="image-container">
+            <img [src]="SelectedProduct.imageURL" alt="">
         </div>
-        <div class="colors">
-            <div class="colors-balls">
-                <span class="color-ball"></span>
-                <span class="color-ball"></span>
-                <span class="color-ball"></span>
+        <div class="product-details">
+            <div class="product-name">{{SelectedProduct.name}}</div>
+            <div class="product-price">
+                <span class="net-price" *ngIf="SelectedProduct.discount">$ {{SelectedProduct.price}}&nbsp;|</span>&nbsp;$ {{GetDiscount().toFixed(2)}} <span *ngIf="SelectedProduct.discount">{{" | "+SelectedProduct.discount+"% OFF"}}</span>
             </div>
-            3 Colours |
-            <span class="item-left">
-                In Stock
-            </span>
+            <div class="brand-cat-gen-container">
+                <span class="brand-cat-gen">{{SelectedProduct.brand}} . {{SelectedProduct.category}} .
+                    {{SelectedProduct.gender}}</span>
+            </div>
+            <div class="colors-boxes">
+                <span class="color-box" *ngFor="let color of SelectedProduct.color" [ngStyle]="{backgroundColor:color}"></span>
+            </div>
+            <div class="size-boxes">
+                <span class="size-box" *ngFor="let size of SelectedProduct.size">{{size}}</span>
+            </div>
+            <div class="item-left" [ngStyle]="{color:SelectedProduct.inStock ? 'green' : 'red'}">
+               {{SelectedProduct.inStock? "In Stock | Only "+SelectedProduct.items_left+" left" : "Out of Stock"}}
+            </div>
+           
+            <div class="description">
+                <div class="desc-heading">Description :</div>
+                {{SelectedProduct.description}}
+            </div>
+
+            <button class="buy-now">Add to cart</button>
+            <button class="buy-now">Notify Me</button>
         </div>
-        <button class="buy-now">Buy Now</button>
     </div>
 </div>

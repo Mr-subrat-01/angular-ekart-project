@@ -8,6 +8,6 @@
 <div class="product-list">
    <div *ngFor="let item of allproducts" (click)="SetSelectedProduct(item)">
       <!-- *ngIf="showProducts==='all' || item.pInStock.toString()===showProducts" -->
-      <app-product [product]="item" *ngIf="item.pName.toLowerCase().includes(searchText)" ></app-product>
+      <app-product [product]="item" *ngIf="item.name.toLowerCase().includes(searchText.toLowerCase())" ></app-product>
    </div>
 </div>

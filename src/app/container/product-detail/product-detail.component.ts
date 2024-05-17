@@ -9,9 +9,17 @@ import { Product } from 'src/app/Models/Product';
 export class ProductDetailComponent {
   @Input()
   SelectedProduct: Product;
+
   UpdateSelectedProduct() {
     console.log(this.SelectedProduct)
     this.SelectedProduct = null;
     console.log(this.SelectedProduct)
+  }
+
+  GetDiscount() {
+    if (this.SelectedProduct.discount) {
+      return this.SelectedProduct.price - (this.SelectedProduct.price * this.SelectedProduct.discount / 100);
+    }
+    return this.SelectedProduct.price;
   }
 }
